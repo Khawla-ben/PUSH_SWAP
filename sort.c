@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:34:11 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/01 05:27:21 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/01 07:27:21 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,11 @@ void	check_send(t_list **stack_a, t_list **stack_b, int *p, int max)
 	int		i;
 	t_list	*tmp;
 
-	// print_c(*stack_a,*stack_b);
 	tmp = (*stack_a);
 	while ((*stack_a)->next)
 	{
 		i = -1;
-		while (++i < (max+1))
+		while (++i < (max + 1))
 		{
 			if ((*stack_a)->content == p[i])
 			{
@@ -75,11 +74,8 @@ void	function(t_list **stack_a, t_list **stack_b, t_list **tmp)
 {
 	int	middle;
 	int	a;
-	
-	// puts("dfghj");
-	middle = ((ft_lstsize(*tmp)) / 2);
-		// print_c(*stack_a,*stack_b);
 
+	middle = ((ft_lstsize(*tmp)) / 2);
 	a = ((*stack_a)->content);
 	while ((*stack_a)->index != 0 && (*tmp)->content != a)
 	{

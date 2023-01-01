@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:58:10 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/30 17:09:11 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/01 07:28:08 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	j;
 	size_t	k;
-	
+
 	if (!dst && !dstsize)
 		return (ft_strlen(src));
 	i = ft_strlen (dst);
