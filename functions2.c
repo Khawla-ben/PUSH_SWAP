@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:21:24 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/23 14:54:51 by kben-ham         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:09:36 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	sb(t_list **stack_b)
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	swap(stack_a);
+	swap(stack_b);
+	write(1, "ss\n", 3);
 }
 
 void	ra(t_list	**stack_a)

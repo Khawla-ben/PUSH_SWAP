@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:38:51 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/19 17:46:51 by kben-ham         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:52:22 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_list
 	int				content;
 	struct s_list	*next;
 	struct s_list	*prev;
+	int				index;
 }	t_list;
 
 // BONUS

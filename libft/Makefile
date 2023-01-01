@@ -1,9 +1,12 @@
 
 NAME = libft.a
+
 OBJECT = $(MY_FILES:.c=.o)
+
 B_OBJECT = $(BONUS_SRC:.c=.o)
 
-CC = cc -Wall -Wextra -Werror -g
+CC = cc  -g -Wall -Wextra -Werror
+
 AR = ar rc
 
 MY_FILES =	ft_isalpha.c \
@@ -53,7 +56,7 @@ all: $(NAME)
 %.o: %.c libft.h
 	$(CC) -o $@ -c  $<
 
-$(NAME): $(OBJECT) $(B_OBJECT) libft.h
+$(NAME): $(OBJECT) $(B_OBJECT)
 	$(AR) $@ $^
 	
 clean:
@@ -63,3 +66,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+PHONY : all clean fclean re

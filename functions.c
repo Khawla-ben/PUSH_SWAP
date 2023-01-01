@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 21:08:51 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/23 14:55:03 by kben-ham         ###   ########.fr       */
+/*   Updated: 2022/12/30 17:10:16 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	rotate_reverse(t_list	**stack_1)
 
 void	rrr(t_list	**stack_a, t_list **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rotate_reverse(stack_a);
+	rotate_reverse(stack_b);
+	write(1, "rrr\n", 4);
 }

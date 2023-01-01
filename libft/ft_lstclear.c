@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 18:12:54 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/10/25 11:42:15 by kben-ham         ###   ########.fr       */
+/*   Updated: 2022/12/29 05:41:32 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	{
 		(*del)((*lst)->content);
 		p = (*lst)->next;
+		p->prev = NULL;
 		free(*lst);
 		(*lst) = p;
 	}

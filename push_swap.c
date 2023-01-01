@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 17:29:36 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/23 15:07:36 by kben-ham         ###   ########.fr       */
+/*   Updated: 2022/12/29 04:39:01 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,50 +78,23 @@ t_list	*check_ordre(t_list*stack_a)
 	exit(0);
 }
 
-int	small_node(t_list *stack_a)
-{
-	int	count;
-	int	min;
-	int	index_min;
-
-	index_min = 0;
-	min = stack_a->content;
-	count = 0;
-	while (stack_a->next)
-	{
-		if (min > (stack_a->next->content))
-		{
-			min = stack_a->next->content;
-			index_min = count + 1;
-		}
-		count++;
-		stack_a = stack_a->next;
-	}
-	return (index_min);
-}
-
 void	put_top(t_list *stack_a, t_list *stack_b)
 {
 	int	middle;
-	int	i;
 
 	middle = ((ft_lstsize(stack_a) + 1) / 2);
 	while (ft_lstsize(stack_a) > 3)
 	{
 		if (small_node(stack_a) == 0)
 			pb (&stack_a, &stack_b);
-		else if (small_node(stack_a) <= middle && (ft_lstsize(stack_a) > 3))
+		else if (small_node(stack_a) <= middle)
 			ra(&stack_a);
 		else
 			rra(&stack_a);
 	}
 	do_it_3(stack_a);
-	i = ft_lstsize(stack_a);
-	while ((i - 2) >= 0)
-	{
+	while (stack_b)
 		pa(&stack_b, &stack_a);
-		i--;
-	}
 }
 
 int	main(int ac, char **av)
@@ -140,14 +113,14 @@ int	main(int ac, char **av)
 		stack_a = check_create(stack_a, tout, &count);
 		size = ft_lstsize(stack_a);
 		check_ordre(stack_a);
-		if (size == 3)
-			do_it_3(stack_a);
 		if (size == 2)
 			sa(&stack_a);
-		if (size == 4)
+		else if (size == 3)
+			do_it_3(stack_a);
+		else if ((size == 4) || (size == 5))
 			put_top(stack_a, stack_b);
-		if (size == 5)
-			put_top(stack_a, stack_b);
+		else if (size > 5)
+			check(&stack_a, &stack_b);
 	}
 	exit(1);
 }
