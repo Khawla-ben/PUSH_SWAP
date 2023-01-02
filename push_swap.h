@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:45:53 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/02 09:08:12 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/02 14:32:52 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,14 @@ void	do_it_3(t_list *stack_a);
 void	check(t_list	**stack_a, t_list	**stack_b);
 int		*put_longest(t_list **stack_a, int c_index, int max);
 void	put_new_index(t_list **stack);
+void	put_new_index(t_list **stack);
+void	get_result(t_list **stack_a, t_list **stack_b);
+int		get_position(t_list	**stack_a, t_list	**stack_b);
+int		get_position_small(t_list	**stack_a, t_list	**stack_b);
+int	min_content(t_list **stack_a);
+int	max_content(t_list **stack_a);
+int	get_best_move(int *sum, int size);
+int	get_sum(int	*p, t_list	**stack_b);
 
 //sort
 int		small_node(t_list *stack_a);

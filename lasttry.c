@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:44 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/02 09:29:25 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/02 14:58:09 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,76 +71,147 @@ void	check(t_list	**stack_a, t_list	**stack_b)
 	check_send(stack_a, stack_b, p, max);
 	put_new_index(stack_a);
 	put_new_index(stack_b);
-	print_c(*stack_a,*stack_b);
-	
+	// print_c(*stack_a,*stack_b);
+	get_result(stack_a, stack_b);
 }
 
-int	*put_longest(t_list **stack_a, int c_index, int max)
+void get_result(t_list **stack_a, t_list **stack_b)
 {
+	get_position(stack_a,stack_b);
+}
+
+int get_position(t_list	**stack_a, t_list	**stack_b)
+{
+	int	*p;
+	int size;
+	int	i;
 	t_list *tmp;
-	t_list *tmp2;
-	t_list *tmp3;
-	int		to_check;
-	int 	*p;
-	int		i;
-
-	tmp3 = (*stack_a);
-	while (c_index != (*stack_a)->content)
-		(*stack_a) = (*stack_a)->next;
-	p = malloc (sizeof (int) *  max + 1);
-	if (!p)
-		exit(1);
-	tmp = (*stack_a);
-	to_check = tmp->content;
-	if (!tmp->next)
-		tmp2= tmp3;
-	else
-		tmp2 = tmp->next;
-	i = 0;
-	p[i] = to_check;
-	while (tmp->content != tmp2->content)
-	{
-		if (to_check < tmp2->content)
-		{
-			to_check = tmp2->content;
-			p[++i] = to_check;
-		}
-		if (tmp2->next == NULL)
-			tmp2 = *stack_a;
-		else
-			tmp2 = tmp2->next;
-	}
-	return (((*stack_a) = tmp3),p);
-}
-
-void put_new_index(t_list **stack)
-{
-	int		i;
-	int		size;
-	int		num;
-	int		middle;
-	t_list	*tmp;
 	
-	num = -1;
-	tmp = (*stack);
-	size = (ft_lstsize(*stack));
-	middle = (size / 2);
-	if ((size % 2) != 0)
-		middle +=1;
-	i = -1;
-	while (++i < middle)
+	tmp = (*stack_b);
+	i = 0;
+	size = (ft_lstsize(*stack_b));
+	p = malloc (sizeof(int) * size);
+	if (!p)
+		return (0);
+
+	while(size > 0)
 	{
-		(*stack)->index = num + 1;
-		(*stack) = (*stack)->next;
-		num++;
-	}
-	num = (size - i);
-	while(i < size)
-	{
-		(*stack)->index = num * (-1);
-		(*stack) = (*stack)->next;
-		num--;
+		p[i] = get_position_small(stack_a,stack_b);
+		(*stack_b) = (*stack_b)->next;
 		i++;
+		size--;
 	}
-	(*stack) = tmp;
+	(*stack_b) = tmp;
+		// print_c(*stack_a,*stack_b);
+
+	get_sum(p, stack_b);
+	
+	// i = 0;
+	// while(i < 2)
+	// {
+	// 	printf(">>>>>>><<<<<%d", p[i]);
+	// 	i++;
+	// }
+	return (0);
 }
+
+int	get_sum(int	*p, t_list	**stack_b)
+{
+	int *sum;
+	int i;
+	int	size;
+	t_list	*tmp;
+
+	tmp = (*stack_b);
+	size = (ft_lstsize(*stack_b));
+	sum = malloc (sizeof(int) * size);
+	if (!sum)
+		return (0);
+	
+	i = 0;
+	while(*stack_b)
+	{
+		if (((*stack_b)->index) < 0)
+			((*stack_b)->index) = ((*stack_b)->index) * (-1);
+		
+		sum[i] = ((*stack_b)->index) + p[i] + 1;
+		i++;
+		(*stack_b) = (*stack_b)->next;
+	}
+	(*stack_b) = tmp; // new function
+		i = 0;
+	// while(i < 2)
+	// {
+	// 	printf(">>>>>>>%d<<<<<", sum[i]);
+	// 	i++;
+	// }
+	get_best_move(sum, size);
+	return(0);
+	
+}
+
+int	get_best_move(int *sum, int size)
+{
+	int	mv;
+	int	i;
+	int	count;
+	
+	i = 0;
+	count = 1;
+	mv = sum [i];
+	while (size > ++i)
+	{
+		if(mv > sum[i])
+		{
+			mv = sum[i];
+			count = i;
+		}
+	}//donc best mvt is mv and count is the number of time that stack_b will incrementer
+	// i = 0;
+	// while(i < 2)
+	// {
+	// 	printf(">>>>>>>.....<<<<<%d\n", sum[i]);
+	// 	i++;
+	// }
+	// printf(">>>>>>><<<<<%d\n", count);
+	
+	
+
+	return(0);
+}
+
+
+int get_position_small(t_list	**stack_a, t_list	**stack_b)
+{
+	int	num;
+	int max;
+	int	min;
+	t_list	*tmp;
+
+	tmp = (*stack_a);
+	num = 0;
+	max = max_content(stack_a);
+	min = min_content(stack_a);
+	(*stack_a) = (*stack_a)->next;
+	while (*stack_a)
+	{
+		if (((*stack_b)->content < (*stack_a)->content) && ((*stack_b)->content > (*stack_a)->prev->content))
+		{
+			num = (*stack_a)->index;
+			if (num < 0)
+				num = (num * (-1));
+			break ;
+		}
+		else if (((*stack_b)->content < min) && ((*stack_a)->content = min) && ((*stack_a)->prev->content = max))
+		{
+			num = (*stack_a)->index;
+			if (num < 0)
+				num = (num * (-1));
+			break ;
+		}
+		(*stack_a) = (*stack_a )->next;
+	}
+	(*stack_a)= tmp;
+	return (num);
+}
+
