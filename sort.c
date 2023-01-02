@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:34:11 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/01 07:27:21 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/02 09:07:32 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	check_send(t_list **stack_a, t_list **stack_b, int *p, int max)
 		if (i == (max + 1))
 			function(stack_a, stack_b, &tmp);
 	}
+	while ((*stack_a)->prev)
+		(*stack_a) = (*stack_a)->prev;
 }
 
 void	function(t_list **stack_a, t_list **stack_b, t_list **tmp)

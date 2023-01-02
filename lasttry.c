@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:44 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/01 07:37:59 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/02 09:29:25 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	check(t_list	**stack_a, t_list	**stack_b)
 	int		c_index;
 	int		*p;
 
-	// c_index = 0; /// ....................
 	tmp = *stack_a;
 	*stack_b = NULL;
 	max = 0;
@@ -46,14 +45,7 @@ void	check(t_list	**stack_a, t_list	**stack_b)
 			if (tmp2->next == NULL)
 				tmp2 = *stack_a;
 			else
-				tmp2 = tmp2->next;	
-			// else if (to_check > tmp2->content)
-			// {
-			// 	if (tmp2->next == NULL)
-			// 		tmp2 = *stack_a;
-			// 	else
-			// 		tmp2 = tmp2->next;
-			// }
+				tmp2 = tmp2->next;
 		}
 		if (max < count)
 		{
@@ -77,7 +69,10 @@ void	check(t_list	**stack_a, t_list	**stack_b)
 	// }
 	put_index(stack_a);
 	check_send(stack_a, stack_b, p, max);
+	put_new_index(stack_a);
+	put_new_index(stack_b);
 	print_c(*stack_a,*stack_b);
+	
 }
 
 int	*put_longest(t_list **stack_a, int c_index, int max)
@@ -114,14 +109,38 @@ int	*put_longest(t_list **stack_a, int c_index, int max)
 			tmp2 = *stack_a;
 		else
 			tmp2 = tmp2->next;
-		// else if (to_check > tmp2->content) //momkin t7ydi hadi o dik if likayna 9bl khrjiha bra l while
-		// {
-		// 	if (tmp2->next == NULL)
-		// 		tmp2 = *stack_a;
-		// 	else
-		// 		tmp2 = tmp2->next;
-		// }
 	}
-	(*stack_a) = tmp3;
-	return (p);
+	return (((*stack_a) = tmp3),p);
+}
+
+void put_new_index(t_list **stack)
+{
+	int		i;
+	int		size;
+	int		num;
+	int		middle;
+	t_list	*tmp;
+	
+	num = -1;
+	tmp = (*stack);
+	size = (ft_lstsize(*stack));
+	middle = (size / 2);
+	if ((size % 2) != 0)
+		middle +=1;
+	i = -1;
+	while (++i < middle)
+	{
+		(*stack)->index = num + 1;
+		(*stack) = (*stack)->next;
+		num++;
+	}
+	num = (size - i);
+	while(i < size)
+	{
+		(*stack)->index = num * (-1);
+		(*stack) = (*stack)->next;
+		num--;
+		i++;
+	}
+	(*stack) = tmp;
 }

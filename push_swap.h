@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:45:53 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/01 07:29:42 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/02 09:08:12 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	do_it_3(t_list *stack_a);
 //lasttry
 void	check(t_list	**stack_a, t_list	**stack_b);
 int		*put_longest(t_list **stack_a, int c_index, int max);
+void	put_new_index(t_list **stack);
 
 //sort
 int		small_node(t_list *stack_a);

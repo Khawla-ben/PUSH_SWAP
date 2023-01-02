@@ -6,14 +6,14 @@
 #    By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 20:56:43 by kben-ham          #+#    #+#              #
-#    Updated: 2022/12/30 21:19:23 by kben-ham         ###   ########.fr        #
+#    Updated: 2023/01/01 15:32:52 by kben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # B_OBJECT = $(BONUS_SRC:.c=.o)
 
-CC = cc -g
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
