@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:27:18 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/02 13:21:27 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/02 19:55:42 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	*put_longest(t_list **stack_a, int c_index, int max)
 		else
 			tmp2 = tmp2->next;
 	}
+
 	return (((*stack_a) = tmp3),p);
 }
 
