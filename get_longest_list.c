@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:27:18 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/02 19:55:42 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/05 01:19:46 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ int	*put_longest(t_list **stack_a, int c_index, int max)
 			p[++i] = to_check;
 		}
 		if (tmp2->next == NULL)
-			tmp2 = *stack_a;
+			tmp2 = tmp3; // bdlt hadi 
 		else
 			tmp2 = tmp2->next;
 	}
-
 	return (((*stack_a) = tmp3),p);
 }
 
@@ -87,19 +86,16 @@ int	max_content(t_list **stack_a)
 {
 	t_list *tmp;
 	int		max;
+	
 	tmp = (*stack_a);
 	max = 0;
-	
 	while (*stack_a)
 	{
 		if ((*stack_a)->content > max)
-		max = (*stack_a)->content;
+			max = (*stack_a)->content;
 		(*stack_a) = (*stack_a)->next;
 	}
-	
-	(*stack_a) = tmp;
-	
-	return(max);
+	return (((*stack_a) = tmp), max);
 }
 
 int	min_content(t_list **stack_a)
@@ -110,7 +106,6 @@ int	min_content(t_list **stack_a)
 	tmp = (*stack_a);
 	min = (*stack_a)->content;
 	(*stack_a) = (*stack_a)->next;
-	
 	while ((*stack_a))
 	{
 		if (min >(*stack_a)->content)
@@ -118,6 +113,5 @@ int	min_content(t_list **stack_a)
 		(*stack_a) = (*stack_a)->next;
 	}
 	(*stack_a) = tmp;
-	
 	return(min);
 }

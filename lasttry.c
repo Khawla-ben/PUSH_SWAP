@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:44 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/02 19:56:18 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/07 10:53:31 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	check(t_list	**stack_a, t_list	**stack_b)
 			{
 				to_check = tmp2->content;
 				count++;
-
 			}
 			if (tmp2->next == NULL)
 				tmp2 = *stack_a;
@@ -60,46 +59,50 @@ void	check(t_list	**stack_a, t_list	**stack_b)
 	// printf(".......%d\n",c_index);
 	// 	printf(">>>%d\n",max);
 	// puts("ok");
-	p = put_longest(stack_a, c_index, max);
-	int i = 0;
-	while(i < max+1)
-	{
-		printf("--------------------------%d",p[i]);
-		i++;
-	}
-
-	// put_index(stack_a);
-	// check_send(stack_a, stack_b, p, max);
-	// 	// print_c(*stack_a,*stack_b);
-	// put_new_index(stack_a);
-	// put_new_index(stack_b);
-	// get_result(stack_a, stack_b);
+	p = put_longest(stack_a, c_index, max); // db wlat s7i7a
+	
+	// int i = 0;
+	// while(i < max+1)
+	// {
+	// 	printf("--------------------------%d",p[i]);
+	// 	i++;
+	// }
+// print_c(*stack_a,*stack_b);
+	put_index(stack_a);
+	// print_c(*stack_a,*stack_b);
+	check_send(stack_a, stack_b, p, max); // s7i7a 100
+	
+	get_result(stack_a, stack_b);
+	// puts("hvdhsvs");
 	// print_c(*stack_a,*stack_b);
 }
 
 void get_result(t_list **stack_a, t_list **stack_b)
 {
+	int	middle;
+	int size;
+	
 	while(*stack_b)
 	{
+		put_new_index(stack_a); // s7I7a 100
+		put_new_index(stack_b); // s7I7a 100
 		// puts("hvdsv");
 		get_position(stack_a,stack_b);
 	}
-	int	middle;
-	int size;
+	// print_c(*stack_a,*stack_b);
 
 	size = 0;
 	middle = ((ft_lstsize(*stack_a)) / 2);
 	if ((size % 2) != 0)
 		middle +=1;
-	// print_c(*stack_a,*stack_b);
 
-	// while (small_node(*stack_a) != 0)
-	// {
-	// 	if (small_node(*stack_a) <= middle)
-	// 		ra(stack_a);
-	// 	else
-	// 		rra(stack_a);
-	// }
+	while (small_node(*stack_a) != 0)
+	{
+		if (small_node(*stack_a) <= middle)
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
 	// print_c(*stack_a,*stack_b);
 
 }
@@ -113,20 +116,38 @@ void get_position(t_list	**stack_a, t_list	**stack_b)
 	
 	tmp = (*stack_b);
 	i = 0;
-	size = (ft_lstsize(*stack_b));
-	p = malloc (sizeof(int) * size);
+	size = (ft_lstsize(*stack_b)); 
+	p = malloc (sizeof(int) * size); 
 	// if (!p)
 	// 	return (0);
+	// puts("mmm");
+	// print_c(*stack_a,*stack_b); ///khawla
 
-	while(size > 0)
+	// printf("size = %d\n", size);
+	// puts("hdvbsivddfv");
+	while(size > 0) //////////////////////trrrrrt
 	{
-		p[i] = get_position_small(stack_a,stack_b);
+		// puts("g");
+		p[i] = get_position_small(stack_a,stack_b); //
+		// puts("gh");
+		
 		(*stack_b) = (*stack_b)->next;
+		if ((*stack_b) == NULL)
+			break ;
+		// printf("st=%d\n",(*stack_b)->content);
 		i++;
 		size--;
 	}
 	(*stack_b) = tmp;
-	get_sum(p, stack_b,stack_a);
+	// print_c(*stack_a,*stack_b);
+	// 	i = 0;
+	// while(i < 3)
+	// {
+	// 	printf("p>>>>>>>%d<<<<<", p[i]);
+	// 	i++;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+	// }
+	
+	get_sum(p, stack_b,stack_a); // hadi s7I7a 100
 }
 
 void	get_sum(int	*p, t_list	**stack_b, t_list **stack_a)
@@ -153,122 +174,140 @@ void	get_sum(int	*p, t_list	**stack_b, t_list **stack_a)
 		(*stack_b) = (*stack_b)->next;
 	}
 	(*stack_b) = tmp; // new function
+		// (void)(*stack_a);
 		// i = 0;
-	// while(i < 2)
+	// while(i < 3)
 	// {
 	// 	printf(">>>>>>>%d<<<<<", sum[i]);
 	// 	i++;
 	// }
+
+	get_best_move(sum, size, stack_a, stack_b, p); // mn hna....
 	
-	get_best_move(sum, size, p, stack_a, stack_b);
 }
 
-void	get_best_move(int *sum, int size,int	*p, t_list	**stack_a, t_list **stack_b)
+void get_best_move(int *sum, int size_b, t_list	**stack_a, t_list **stack_b, int *p)
 {
-	int	mv;
-	int	i;
-	int count;
+	// print_c(*stack_a,*stack_b);
+	int b_mv;
+	int i_b_mv;
 	
+	int i;
+	
+	int b_mv_g;
+	int i_b_mv_g;
+
+	b_mv = 0;
+	i_b_mv = 0;
+	
+	b_mv_g = b_mv;
+	i_b_mv_g = i_b_mv;
 	i = 0;
-	mv = sum [i];
-	while ((size - 1) > ++i)
+	b_mv = sum [i];
+	while (i < (size_b - 1))
 	{
-		puts("ttt");
-		if(mv > sum[i])
+		i++;
+		if (b_mv > sum[i])
 		{
-			mv = sum[i];
-			count = i;
+			b_mv = sum[i];
+			i_b_mv = p[i];
 		}
-		
 	}
-	//donc best mvt is mv and count is the number of time that stack_b will incrementer
-	// i = 0;
-	// while(i < 2)
-	// {
-	// 	printf(">>>>>>>.....<<<<<%d\n", sum[i]);
-	// 	i++;
-	// }
-	// printf(">>>>>>><<<<<%d\n", count);
-// printf("%d\n",count);
-	do_it(stack_a, stack_b, sum, p,count);
-
-	
+	// puts("pff");
+	        // print_c(*stack_a,*stack_b);                                                                                                                                                                                                                                    
+	// do_it_for_stack_b(stack_b, b_mv, i_b_mv, size_b); // hnaaaaaaa
+	do_it_for_stack_a(stack_a, stack_b, sum, i_b_mv_g, size_b, b_mv); //hnaaaaaaaa
 }
 
-void do_it(t_list	**stack_a, t_list	**stack_b, int *sum, int *p, int count)
+void	do_it_for_stack_a(t_list	**stack_a, t_list	**stack_b, int *sum, int i_b_mv, int size_b, int b_mv)
 {
+	int i;
+	int j;
 	int middle;
 	int	size;
-	int	i;
-	int j;
-
+	int *all;
+	(void)b_mv;
+	
+	// print_c(*stack_a,*stack_b);
+	i = 0;
 	size = ft_lstsize(*stack_a);
 	middle = (size / 2);
 	if ((size % 2) != 0)
 		middle +=1;
-		// printf("%d\n",count);
-		// printf("%d-------",middle);
-	// printf("....%d....\n",sum[count]);
-	// puts("hhh");
-	// printf("....%d....\n",sum[0]);
-	// printf("....%d....\n",sum[1]);
-	// i = sum[count];
 	i = 0;
-	j = sum[count] - 1 ;
-	if (p[i] < middle) // i ghalaaaaaat
-	{
-			puts("lll");
-		while (j > 0)
-		{
-			ra(stack_a);
-			j--;
-		}
-		pa(stack_b,stack_a);
-	}
-	else if (p[i] > middle)
-	{
-			puts("ldcjdsc");
-		while (j > 0)
-		{
-			rra(stack_a);
-			j--;
-		}
-		pa(stack_b,stack_a);
-	}
-	// print_c(*stack_a,*stack_b);
-}
+	j = sum[i_b_mv] - 1;
+	// put_index(stack_a);
+	all = get_po(stack_a,stack_b);
 
-int get_position_small(t_list	**stack_a, t_list	**stack_b)
+		if (all[i_b_mv] < middle && all[i_b_mv] >= 0  )
+		{
+				// puts("lll");
+			while (j > 0)
+			{
+				ra(stack_a);
+				j--;
+			}
+		}
+		else if (all[i_b_mv] < middle && all[i_b_mv] < 0  )
+		{
+				// puts("tss");
+			while (j > 0)
+			{
+				rra(stack_a);
+				j--;
+			}
+		}
+		else if (all[i_b_mv] > middle)
+		{
+				// puts("ldcjdsc");
+			while (j > 0)
+			{
+				rra(stack_a);
+				j--;
+			}
+		}
+		// puts("hhjdsvs");
+		// print_c(*stack_a,*stack_b);
+		do_it_for_stack_b(stack_b, b_mv, i_b_mv, size_b); 
+		pa(stack_b,stack_a);
+}
+// }
+
+void	do_it_for_stack_b( t_list	**stack_b, int b_mv, int i_b_mv, int size_b)
 {
-	int	num;
-	int max;
-	int	min;
-	t_list	*tmp;
-
-	tmp = (*stack_a);
-	num = 0;
-	max = max_content(stack_a);
-	min = min_content(stack_a);
-	(*stack_a) = (*stack_a)->next;
-	while (*stack_a)
+	t_list *tmp;
+	int		middle_b;
+	int		j;
+	int res;
+	
+	(void)b_mv;
+	res = i_b_mv;
+	middle_b = size_b / 2;
+	tmp = (*stack_b);
+	while (res > 0)
 	{
-		if (((*stack_b)->content < (*stack_a)->content) && ((*stack_b)->content > (*stack_a)->prev->content))
-		{
-			num = (*stack_a)->index;
-			if (num < 0)
-				num = (num * (-1));
-			break ;
-		}
-		else if (((*stack_b)->content < min) && ((*stack_a)->content = min) && ((*stack_a)->prev->content = max))
-		{
-			num = (*stack_a)->index;
-			if (num < 0)
-				num = (num * (-1));
-			break ;
-		}
-		(*stack_a) = (*stack_a )->next;
+		tmp = tmp->next;
+		res--;
 	}
-	(*stack_a)= tmp;
-	return (num);
-}
 
+	if (tmp->index != 0)
+	{
+		j = size_b - i_b_mv;
+		if (i_b_mv < middle_b)
+		{
+			while (j >=0)
+			{
+				rb(stack_b);
+				j--;
+			}
+		}
+		if (i_b_mv >= middle_b)
+		{
+			while (j >=0)
+			{
+				rrb(stack_b);
+				j--;
+			}
+		}
+	}
+}

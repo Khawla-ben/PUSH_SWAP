@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:45:53 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/02 18:50:15 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/07 10:47:42 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,22 @@ void	put_new_index(t_list **stack);
 void	put_new_index(t_list **stack);
 void	get_result(t_list **stack_a, t_list **stack_b);
 void	get_position(t_list	**stack_a, t_list	**stack_b);
-int		get_position_small(t_list	**stack_a, t_list	**stack_b);
 int		min_content(t_list **stack_a);
 int		max_content(t_list **stack_a);
-void	get_best_move(int *sum, int size,int	*p, t_list	**stack_a, t_list **stack_b);
+void	get_best_move(int *sum, int size_b, t_list	**stack_a, t_list **stack_b, int *p);
 void	get_sum(int	*p, t_list	**stack_b, t_list **stack_a);
-void	do_it (t_list	**stack_a, t_list	**stack_b, int *sum, int *p, int count);
-
+void	do_it_for_stack_a(t_list	**stack_a, t_list	**stack_b, int *sum, int i_b_mv, int size_b, int b_mv);
+void	do_it_for_stack_b( t_list	**stack_b, int b_mv, int i_b_mv, int size_b);
 //sort
 int		small_node(t_list *stack_a);
 void	put_index(t_list **lst);
 void	check_send(t_list **stack_a, t_list **stack_b, int *p, int max);
 void	function(t_list **stack_a, t_list **stack_b, t_list **tmp);
+int		get_position_small(t_list	**stack_a, t_list	**stack_b);
 
 //printf
 void	print_c(t_list *stack_a, t_list *stack_b);
 
+int *get_po(t_list	**stack_a, t_list	**stack_b);
+int get_p(t_list	**stack_a, t_list	**stack_b);
 #endif
