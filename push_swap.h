@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:45:53 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/07 10:47:42 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/16 22:25:11 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,41 @@ void	f1(t_list	*stack_a);
 void	f2(t_list	*stack_a);
 void	do_it_3(t_list *stack_a);
 
-//lasttry
-void	check(t_list	**stack_a, t_list	**stack_b);
+//get_longest_list
 int		*put_longest(t_list **stack_a, int c_index, int max);
 void	put_new_index(t_list **stack);
-void	put_new_index(t_list **stack);
-void	get_result(t_list **stack_a, t_list **stack_b);
-void	get_position(t_list	**stack_a, t_list	**stack_b);
-int		min_content(t_list **stack_a);
-int		max_content(t_list **stack_a);
-void	get_best_move(int *sum, int size_b, t_list	**stack_a, t_list **stack_b, int *p);
-void	get_sum(int	*p, t_list	**stack_b, t_list **stack_a);
-void	do_it_for_stack_a(t_list	**stack_a, t_list	**stack_b, int *sum, int i_b_mv, int size_b, int b_mv);
-void	do_it_for_stack_b( t_list	**stack_b, int b_mv, int i_b_mv, int size_b);
-//sort
-int		small_node(t_list *stack_a);
-void	put_index(t_list **lst);
 void	check_send(t_list **stack_a, t_list **stack_b, int *p, int max);
 void	function(t_list **stack_a, t_list **stack_b, t_list **tmp);
-int		get_position_small(t_list	**stack_a, t_list	**stack_b);
 
-//printf
-void	print_c(t_list *stack_a, t_list *stack_b);
+//get_result
+void	get_position(t_list	**stack_a, t_list	**stack_b, int size_b);
+void	get_best_move(int *sum, t_list	**stack_a, t_list **stack_b, int *all);
+int		*get_sum(int	*p, t_list	**stack_b, int size_b);
+void	put_index(t_list **lst);
 
-int *get_po(t_list	**stack_a, t_list	**stack_b);
-int get_p(t_list	**stack_a, t_list	**stack_b);
+//here_we_go_again
+int		get_count(t_list **stack_a, t_list **tmp, int to_check);
+void	check(t_list	**stack_a, t_list	**stack_b);
+void	get_result(t_list **stack_a, t_list **stack_b);
+
+//max_min
+int		min_content(t_list **stack_a);
+int		max_content(t_list **stack_a);
+int		i_min_content(t_list **stack_a);
+int		i_max_content(t_list **stack_a);
+int		small_node(t_list *stack_a);
+
+//ok
+int		*cor_p(t_list **stack_a, t_list **stack_b, int size_b);
+int		get_b_p(t_list **stack_a, t_list **stack_b, int max, int min);
+int		position_in_a(t_list **stack_a, t_list **stack_b, int num, int a);
+void	*free_table(char **tab, int j);
+
+//sign
+void	check_sign(t_list	**stack_a, t_list	**stack_b, int b_mv, int *all);
+void	get_sign1(t_list **stack_a, t_list **stack_b, int index, int ok);
+void	get_sign2(t_list **stack_a, t_list **stack_b, int index, int ok);
+void	get_sign3(t_list **stack_a, t_list **stack_b, int index, int ok);
+void	get_sign4(t_list **stack_a, t_list **stack_b, int index, int ok);
+
 #endif

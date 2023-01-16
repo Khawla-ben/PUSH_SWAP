@@ -6,7 +6,7 @@
 #    By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 20:56:43 by kben-ham          #+#    #+#              #
-#    Updated: 2023/01/04 16:31:12 by kben-ham         ###   ########.fr        #
+#    Updated: 2023/01/16 20:29:36 by kben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,12 @@
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 LIBFT = libft/libft.a
 
-MY_FILES = push_swap.c functions.c functions2.c functions3.c sort3.c sort.c printf.c lasttry.c get_longest_list.c lba9i.c
+MY_FILES = push_swap.c functions.c functions2.c functions3.c sort3.c ok.c sign.c \
+here_we_go_again.c get_longest_list.c max_min.c get_result.c sign1.c sign2.c sign3.c
 
 OBJECT = $(MY_FILES:.c=.o)
 # BONUS_SRC =
@@ -39,8 +40,8 @@ $(NAME): $(OBJECT)
 
 clean:
 	make clean -C libft
-	rm -f $(OBJECT) 
-	
+	rm -f $(OBJECT)
+
 fclean: clean
 	rm -rf $(NAME) libft/libft.a
 

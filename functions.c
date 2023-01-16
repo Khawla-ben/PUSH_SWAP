@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 21:08:51 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/02 17:16:35 by kben-ham         ###   ########.fr       */
+/*   Created: 2022/12/23 14:59:11 by kben-ham          #+#    #+#             */
+/*   Updated: 2023/01/16 16:18:22 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,17 @@ void	push(t_list	**stack_1, t_list **stack_2)
 {
 	t_list	*head;
 
-	head = (*stack_1);
-	*stack_1 = (*stack_1)->next;
-	if (*stack_1)
-		(*stack_1)->prev = NULL;
-	head->next = NULL;
-	ft_lstadd_front(stack_2, head);
+	if (*stack_1 == NULL)
+		return ;
+	else
+	{
+		head = (*stack_1);
+		*stack_1 = (*stack_1)->next;
+		if (*stack_1)
+			(*stack_1)->prev = NULL;
+		head->next = NULL;
+		ft_lstadd_front(stack_2, head);
+	}
 }
 
 void	rotate_reverse(t_list	**stack_1)

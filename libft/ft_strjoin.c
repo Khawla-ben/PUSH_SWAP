@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:14:35 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/18 20:32:39 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/16 22:21:37 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strjoin(char const *s1, char const *s2, char c)
 	}
 	p = malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
 	if (!p)
-		return (NULL);
+		exit(1);
 	while (s1[i])
 		p[j++] = s1[i++];
 	p[j++] = c;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 14:54:30 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/23 14:55:22 by kben-ham         ###   ########.fr       */
+/*   Created: 2022/12/23 14:59:11 by kben-ham          #+#    #+#             */
+/*   Updated: 2023/01/16 16:18:35 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
+	write(1, "rr\n", 3);
 }
 
 void	pb(t_list	**stack_a, t_list **stack_b)
@@ -39,5 +40,5 @@ void	rra(t_list	**stack_a)
 void	rrb(t_list	**stack_b)
 {
 	rotate_reverse(stack_b);
-	write(1, "rra\n", 4);
+	write(1, "rrb\n", 4);
 }
