@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 17:29:36 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/17 01:57:57 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 02:14:23 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,12 @@ int	*join_split_input(int ac, char **av, int *count)
 	int		*new;
 	int		i;
 	int		j;
+
 	i = 0;
-	j = 0;
+	j = -1;
 	table = NULL;
-	// system ("leaks push_swap");
 	while (++i < ac)
-	{
-		// if (table)
-		// 	free(table);
 		table = ft_strjoin(table, av[i], ' ');
-	}
-	// system ("leaks push_swap");
 	all = ft_split(table, ' ');
 	i = 0;
 	while (all[i++])
@@ -37,11 +32,8 @@ int	*join_split_input(int ac, char **av, int *count)
 	new = malloc (sizeof(int) * i);
 	if (!new)
 		return (NULL);
-	while (all[j])
-	{
+	while (all[++j])
 		new[j] = ft_atoi(all[j]);
-		j++;
-	}
 	free_table(all, j);
 	free(table);
 	return (new);
@@ -129,6 +121,5 @@ int	main(int ac, char **av)
 		else if (size > 5)
 			check(&stack_a, &stack_b);
 	}
-	// system ("leaks push_swap");
 	exit(1);
 }

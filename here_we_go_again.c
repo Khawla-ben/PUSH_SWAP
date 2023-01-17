@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:59:11 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/17 01:38:32 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 02:14:36 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	check(t_list	**stack_a, t_list	**stack_b)
 	check_send(stack_a, stack_b, p, max);
 	free(p);
 	get_result(stack_a, stack_b);
-	// system ("leaks push_swap");
 }
 
 void	get_result(t_list **stack_a, t_list **stack_b)
