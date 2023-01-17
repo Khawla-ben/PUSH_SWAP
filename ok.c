@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:59:11 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/16 22:29:27 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:29:07 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,15 @@ void	*free_table(char **tab, int j)
 	}
 	free(tab);
 	return (NULL);
+}
+
+t_list	*check_ordre(t_list*stack_a)
+{
+	while (stack_a->next)
+	{
+		if ((stack_a->content) > (stack_a->next->content))
+			return (0);
+		stack_a = stack_a->next;
+	}
+	exit(0);
 }

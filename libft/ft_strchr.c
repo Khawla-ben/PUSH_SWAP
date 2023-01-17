@@ -6,18 +6,20 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:02:47 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/10/25 11:19:19 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:14:07 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	int	i;
 	int	len;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	len = ft_strlen(s);
 	if (c == 0)
 		return (((char *) s) + len);

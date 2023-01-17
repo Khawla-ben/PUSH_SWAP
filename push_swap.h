@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:45:53 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/16 22:25:11 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:44:24 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int		*cor_p(t_list **stack_a, t_list **stack_b, int size_b);
 int		get_b_p(t_list **stack_a, t_list **stack_b, int max, int min);
 int		position_in_a(t_list **stack_a, t_list **stack_b, int num, int a);
 void	*free_table(char **tab, int j);
+t_list	*check_ordre(t_list*stack_a);
 
 //sign
 void	check_sign(t_list	**stack_a, t_list	**stack_b, int b_mv, int *all);
@@ -76,5 +77,13 @@ void	get_sign1(t_list **stack_a, t_list **stack_b, int index, int ok);
 void	get_sign2(t_list **stack_a, t_list **stack_b, int index, int ok);
 void	get_sign3(t_list **stack_a, t_list **stack_b, int index, int ok);
 void	get_sign4(t_list **stack_a, t_list **stack_b, int index, int ok);
+
+//parsing
+int		*join_split_input(int ac, char **av, int *count);
+t_list	*check_create(t_list *stack_a, int *tout, int *count);
+void	put_top(t_list *stack_a, t_list *stack_b);
+char	*ft_strjoin1(char *s1, char *s2);
+
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

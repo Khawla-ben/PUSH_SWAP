@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 21:03:45 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/10/27 01:36:42 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:29:45 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c)
 			i++;
 		nbr_c = nbr_char(s + i, c);
-		p[j] = ft_substr(s, i, nbr_c);
+		p[j] = ft_substr((char *)s, i, nbr_c);
 		if (!p[j])
 			return (free_table(p, j));
 		i += nbr_c;

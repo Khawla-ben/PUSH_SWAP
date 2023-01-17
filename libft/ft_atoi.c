@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:17:19 by kben-ham          #+#    #+#             */
-/*   Updated: 2022/12/30 17:46:24 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:42:01 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str)
 	if (((s * n) > 2147483647) || ((s * n) < -2147483648)
 		|| (ft_isdigit(str[i]) == 0 && str[i]))
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	return (s * n);
