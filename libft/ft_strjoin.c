@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:14:35 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/16 22:21:37 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 01:51:54 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char	*ft_strjoin(char const *s1, char const *s2, char c)
 	while (s2[i])
 		p[j++] = s2[i++];
 	p[j] = '\0';
+	free((void *)s1);
 	return (p);
 }

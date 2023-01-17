@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:59:11 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/16 22:29:14 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 01:34:24 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	get_position(t_list	**stack_a, t_list	**stack_b, int size_b)
 		i++;
 	}
 	sum = get_sum(p, stack_b, size_b);
+	free(p);
 	get_best_move(sum, stack_a, stack_b, all);
 }
 
@@ -58,6 +59,7 @@ void	get_best_move(int *sum, t_list	**stack_a, t_list **stack_b, int *all)
 		i++;
 		size_b--;
 	}
+	free(sum);
 	check_sign(stack_a, stack_b, i_b_mv, all);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kben-ham <kben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 20:59:57 by kben-ham          #+#    #+#             */
-/*   Updated: 2023/01/16 20:21:15 by kben-ham         ###   ########.fr       */
+/*   Updated: 2023/01/17 01:35:35 by kben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	check_sign(t_list	**stack_a, t_list	**stack_b, int b_mv, int *all)
 	else if ((ok * index) == 0)
 		get_sign4(stack_a, stack_b, index, ok);
 	pa(stack_b, stack_a);
+	free(all);
 }
 
 static void	get_sign41( t_list **stack_b, int index, int ok)
